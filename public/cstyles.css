@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global styles */
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    background-image: url('https://wallpapercave.com/wp/wp6944127.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: transparent;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 40px;
+  }
+  
+  .navbar ul {
+    display: flex;
+    list-style-type: none;
+  }
+  
+  .navbar li {
+    margin-left: 20px;
+  }
+  
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    color: #ccc;
+  }
+  
+  /* Hero section styles */
+  .hero {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    text-align: center;
+    background-color: transparent;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #0072C6;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  /* Contact info section styles */
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 60px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    max-width: 300px;
+  }
+  
+  .contact-icon {
+    font-size: 24px;
+    color: #0072C6;
+    margin-right: 20px;
+  }
+  
+  .contact-details h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .contact-details p {
+    color: #666;
+  }
+  
+  /* Map section styles */
+  .map {
+    width: 100%;
+    height: 450px;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Bottom navbar styles */
+  .bottom-navbar {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #ddd;
+  }
+  
+  .bottom-nav-item {
+    color: #666;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .bottom-nav-item:hover {
+    color: #333;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 60px 20px;
+    }
+  
+    .hero h1 {
+      font-size: 28px;
+    }
+  
+    .hero p {
+      font-size: 16px;
+    }
+  
+    .contact-item {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .contact-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+
+  .logo {
+    font-size: 2em;
+    text-shadow: 3px 3px black;
+    text-decoration: wavy;
+    color: white;
+    font-weight: bold;
+    perspective: 1000px; /* Adjust perspective for 3D effect */
+  }
+  
+  .logo::before, .logo::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: top left;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .logo::before {
+    color: #ff5733; /* Change the color for a 3D effect */
+    transform: rotateX(0deg);
+  }
+  
+  .logo::after {
+    color: #33c1ff;
+    transform: rotateY(0deg);
+  }
+  
+  .logo:hover::before {
+    transform: rotateX(-20deg);
+  }
+  
+  .logo:hover::after {
+    transform: rotateY(20deg);
+  }
+  
+  @keyframes hoverAnimation {
+    0% {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    50% {
+      transform: rotateX(20deg) rotateY(20deg);
+    }
+    100% {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+  }
+  
+  .logo:hover {
+    animation: hoverAnimation 3s infinite;
+  }

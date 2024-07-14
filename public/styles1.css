@@ -1,0 +1,611 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  height: 100%;
+  overflow: hidden; /* Prevents the entire page from scrolling */
+
+}
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.codingnepalweb.com/demos/create-glassmorphism-login-form-html-css/hero-bg.jpg"), #000;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Header Styles */
+header {
+  height: 5vh;
+  background-color: transparent;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.logo {
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 20px;
+}
+
+.menu-btn {
+  margin-right: none;
+  margin-left: 70vw;
+  margin-bottom: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: right;
+  color: black;
+  background: transparent;
+}
+
+.navbar {
+  display: flex;
+  background-color: transparent;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: transparent;
+}
+
+.navbar a:hover {
+  color: transparent;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+
+.navbar .auth-buttons a {
+  background-color: transparent;
+}
+
+.navbar .auth-buttons a:hover {
+  background-color: #323233;
+}
+
+/* Main Content Styles */
+#content {
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  flex: 1;
+  overflow-y: auto; /* Enables vertical scrolling */
+  width: 100%;
+  height: 100%; /* Adjust height to account for the header */
+}
+
+/* Heading Styles */
+h1 {
+  text-align: center;
+  margin-bottom: 3vh;
+  font-size: 4vh;
+  background: linear-gradient(to left, rgb(255, 255, 255) 45%, rgb(255, 255, 255) 55%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 2s ease-in-out;
+  font-weight: bold;
+  text-shadow: 2px 2px black;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Form Styles */
+form {
+  margin-top: 10vh;
+  background: transparent;
+  padding: 6vw 5vw;
+  border-radius: 5vw;
+  box-shadow: 0px 0px 5vw rgba(0, 0, 0, 0.6);
+  color: #fffcfc;
+  max-width: 90%;
+  max-height: 100%;
+  transform: perspective(600px) rotateY(0deg);
+  animation: popIn 1s ease-in-out;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin-bottom: 30vh;
+}
+
+form:hover {
+  transform: rotateY(10deg) scale(1.05);
+  transition: transform 0.3s;
+}
+
+@keyframes popIn {
+  from { transform: perspective(600px) rotateY(-90deg); opacity: 0; }
+  to { transform: perspective(600px) rotateY(0deg); opacity: 1; }
+}
+
+/* Input Styles */
+input[type="text"], input[type="password"], input[type="file"] {
+  margin-top: 1vh;
+  width: 90%;
+  height: 7vh;
+  padding: 2vh 5vw 2vh 3vw;
+  border: 0.3vw solid #000000;
+  border-radius: 5vw;
+  font-size: 2vh;
+  margin-bottom: 1vh;
+  color: #000000;
+}
+
+/* Button Styles */
+button {
+  width: 50%;
+  height: 6vh;
+  padding: 2vh;
+  margin-top: 4vh;
+  margin-bottom: 1vh;
+  border: none;
+  border-radius: 5vw;
+  background: rgb(0, 0, 0);
+  color: rgb(8, 0, 164);
+  font-size: 2vh;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.5s ease, transform 0.5s ease;
+}
+
+button:hover {
+  background: white;
+  color: rgb(0, 0, 0);
+  transform: scale(1.1);
+}
+
+button:active {
+  background: rgb(0, 0, 0);
+  transform: translateY(2px);
+}
+
+/* Application Container Styles */
+#app {
+  margin-top: 10%;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow-y: hidden; /* Prevents the app container from scrolling */
+  /* backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); */
+}
+
+/* Join Room Popup */
+#join-room-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  display: none;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 5%;
+  border-radius: 5vw;
+  box-shadow: 5px 4px 8px rgba(50, 0, 0, 0.2);
+  color: white;
+}
+
+#join-room-popup .popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+}
+
+.progress-circle {
+  border: 1vw solid #ccc;
+  border-top: 1vw solid #100183;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+#cr-room-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  display: none;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 5%;
+  border-radius: 5vw;
+  box-shadow: 5px 4px 8px rgba(50, 0, 0, 0.2);
+  color: white;
+}
+
+#cr-room-popup .popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+footer {
+  margin-top: 10vh;
+  background: transparent;
+  color: #ccc;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  width: 100%;
+}
+
+/* Bottom Navbar */
+.bottom-navbar {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.bottom-nav-item {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.bottom-nav-item:hover {
+  transform: translateY(-5px);
+  background-color: #555;
+  border-radius: 5px;
+}
+
+.bottom-nav-item.active {
+  background-color: #444;
+  border-radius: 5px;
+}
+
+
+/* Main Content */
+main {
+  flex: 1;
+  overflow-y: auto; /* Enables vertical scrolling */
+  width: 100%;
+  height: 100%; /* Adjust height to account for the header */
+  overflow-x: hidden;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+/* Paragraph and Link Styles */
+p {
+  margin-top: 3vh;
+  font-size: 2vh;
+  color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 100;
+  text-shadow: 1px 1px black;
+}
+
+a {
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+}
+
+a:hover {
+  color: #fffdfd;
+}
+
+/* Responsive Paragraph Styles */
+@media only screen and (max-width: 768px) {
+  p {
+    font-size: 2vh;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  p {
+    font-size: 2vh;
+  }
+}
+
+/* Additional Styles for Form Container */
+#formContainer {
+  max-width: 90%;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form {
+  margin-top: 10%;
+  margin-bottom: 30%;
+  text-align: center;
+  height: 60%;
+  width: 80vw;
+}
+
+input {
+  width: 90%;
+  height: 7vh;
+  padding: 10px;
+  margin-bottom: 1vh;
+  box-sizing: border-box;
+}
+
+button {
+  width: 50%;
+  height: 6vh;
+  padding: 10px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .app-title {
+    font-size: 5vh;
+  }
+
+  .info-btn {
+    display: inline;
+  }
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #09f;
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#sideMenu {
+  margin-left: 5vw;
+  margin-top:2vh;
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.3s;
+}
+
+#sideMenu:hover {
+  transform: rotateY(15deg);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 20px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+nav ul li:last-child {
+  border-bottom: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  display: block;
+}
+
+nav ul li a:hover {
+  color: #007BFF;
+}
+
+nav ul li:hover {
+  background-color: #f9f9f9;
+  transform: translateZ(10px);
+}
+
+/* Laptop Styles */
+@media (min-width: 768px) {
+  body, html {
+    background-image: url('background-laptop.jpg');
+  }
+
+  header {
+    height: 80px;
+    padding: 20px;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .navbar {
+    display: block;
+  }
+
+  .navbar ul {
+    justify-content: flex-end;
+  }
+
+  .navbar li {
+    margin-left: 30px;
+  }
+
+  .navbar a {
+    font-size: 18px;
+  }
+
+  #formContainer {
+    max-width: 500px;
+    margin-top: 100px;
+  }
+
+  form {
+    margin-top: 0;
+    max-width: 400px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  body, html {
+    background-image: url('background-mobile.jpg');
+  }
+
+  .menu-btn {
+    display: flex;
+    margin-top: 4vh;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  #formContainer {
+    max-width: 90%;
+    margin-top: 50px;
+  }
+
+  form {
+    margin-top: 0;
+    max-width: 100%;
+  }
+
+  input[type="text"], input[type="password"], input[type="file"] {
+    font-size: 1.8vh;
+    padding: 1.5vh 4vw 1.5vh 2.5vw;
+  }
+
+  button {
+    font-size: 1.8vh;
+    width: 60%;
+  }
+
+  p {
+    font-size: 1.8vh;
+  }
+
+  h1 {
+    font-size: 3.5vh;
+  }
+}
+.logo {
+  font-size: 2em;
+  text-shadow: 3px 3px black;
+  text-decoration: wavy;
+  color: white;
+  font-weight: bold;
+  perspective: 1000px; /* Adjust perspective for 3D effect */
+}
+
+.logo::before, .logo::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo::before {
+  color: #ff5733; /* Change the color for a 3D effect */
+  transform: rotateX(0deg);
+}
+
+.logo::after {
+  color: #33c1ff;
+  transform: rotateY(0deg);
+}
+
+.logo:hover::before {
+  transform: rotateX(-20deg);
+}
+
+.logo:hover::after {
+  transform: rotateY(20deg);
+}
+
+@keyframes hoverAnimation {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: rotateX(20deg) rotateY(20deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+}
+
+.logo:hover {
+  animation: hoverAnimation 3s infinite;
+}
